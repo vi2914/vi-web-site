@@ -88,31 +88,18 @@
     color: white;
 }
 
+.nav-item.active:hover {
+    background: var(--primary-hover);
+    color: white;
+}
+
 .nav-item.admin {
-    background: rgba(220, 38, 38, 0.15);
-    color: #f87171;
+    background: #0d6efd;
+    color: #f9fafb;
 }
 
 .nav-item.admin:hover {
-    background: rgba(220, 38, 38, 0.3);
-}
-
-.nav-item.manager {
-    background: rgba(59, 130, 246, 0.15);
-    color: #60a5fa;
-}
-
-.nav-item.manager:hover {
-    background: rgba(59, 130, 246, 0.3);
-}
-
-.nav-item.referee {
-    background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
-}
-
-.nav-item.referee:hover {
-    background: rgba(16, 185, 129, 0.3);
+    background: #321fdb;
 }
 
 .btn-gray,

@@ -75,21 +75,21 @@ function NavBar({ user, logout }) {
                         Home
                     </NavLink>
 
-                    {isAdmin && isLocal && (
-                        <NavLink onClick={closeMenu} to="/admin" className="nav-item admin">
-                            Admin panel
-                        </NavLink>
-                    )}
-
                     {(isManager || isAdmin) && (
-                        <NavLink onClick={closeMenu} to="/manager" className="nav-item manager">
+                        <NavLink onClick={closeMenu} to="/manager" className="nav-item">
                             Manager panel
                         </NavLink>
                     )}
 
                     {(isReferee || isAdmin) && (
-                        <NavLink onClick={closeMenu} to="/referee" className="nav-item referee">
+                        <NavLink onClick={closeMenu} to="/referee" className="nav-item">
                             Referee panel
+                        </NavLink>
+                    )}
+
+                    {isAdmin && isLocal && (
+                        <NavLink onClick={closeMenu} to="/admin" className="nav-item admin">
+                            Admin panel
                         </NavLink>
                     )}
                 </div>
