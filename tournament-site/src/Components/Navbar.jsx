@@ -82,8 +82,8 @@ function NavBar({ user, logout }) {
                     )}
 
                     {isManager && (
-                        <NavLink onClick={closeMenu} to="/team-info" className="nav-item manager">
-                            Team info
+                        <NavLink onClick={closeMenu} to="/manager" className="nav-item manager">
+                            Manager panel
                         </NavLink>
                     )}
 
