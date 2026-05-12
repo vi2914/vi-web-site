@@ -51,7 +51,7 @@ function Login({ setUser, apiUrl }) {
     return (
         <div className="login-page">
             <form onSubmit={handleSubmit} className="login-card">
-                <h2 className="login-title">🔐 Login</h2>
+                <h2 className="login-title">Login</h2>
 
                 <input
                     name="username"

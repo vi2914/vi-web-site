@@ -58,7 +58,7 @@ function AdminCreateUser({ isAdmin, apiUrl }) {
 
     return (
         <div className="card admin-card">
-            <h3>➕ Create User</h3>
+            <h3>Create User</h3>
 
             <form onSubmit={handleSubmit} className="admin-form">
                 <input name="username" value={form.username} onChange={handleChange} placeholder="Username" />
@@ -123,7 +123,7 @@ function AdminUserPanel({ isAdmin, apiUrl }) {
     return (
         <div className="card admin-card">
             <div className="admin-header">
-                <h3>👥 Users</h3>
+                <h3>Users</h3>
 
                 <button
                     onClick={deleteSelected}
@@ -171,7 +171,7 @@ export default function AdminPanel({ user, apiUrl }) {
     return (
         <div className="admin-layout">
             <div className="admin-top">
-                <h2>🛠 Admin Dashboard</h2>
+                <h2>Admin Dashboard</h2>
                 <p>Logged in as <b>{user.username}</b></p>
             </div>
 
