@@ -1,3 +1,5 @@
+import "./admin.css";
+
 import { useEffect, useState } from "react";
 
 /* ---------------- CREATE USER ---------------- */
