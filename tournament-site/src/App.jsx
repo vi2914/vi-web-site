@@ -1,13 +1,20 @@
 import './App.css'
-import Navbar from './Components/Navbar'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import NavBar from './Components/Navbar'
+import AdminPanel from './Components/admin';
 
 function App() {
 
   
   return (
-    <>
-      <Navbar />
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/*" element={<Navigate to="/" />} />
+        <Route path="/admin" element={<AdminPanel />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

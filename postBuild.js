@@ -12,4 +12,4 @@ function buildVite(dir) {
     }
 }
 
-buildVite("vi-web-site");
+buildVite("tournament-site");
