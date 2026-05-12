@@ -1,0 +1,166 @@
+.manager-layout {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    color: var(--text);
+}
+
+.manager-layout h2,
+.manager-layout h3,
+.manager-layout h4 {
+    margin: 0;
+    color: var(--text);
+}
+
+.manager-layout p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* SECTIONS */
+.manager-layout section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--bg-2);
+    box-sizing: border-box;
+}
+
+/* LISTS */
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+/* CARDS */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    padding: 12px;
+    box-sizing: border-box;
+
+    color: var(--text);
+
+    min-width: 0;
+}
+
+/* INPUTS */
+.manager-layout input,
+.manager-layout select {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+
+    background: var(--card);
+    color: var(--text);
+
+    box-sizing: border-box;
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.manager-layout input::placeholder {
+    color: var(--text-muted);
+}
+
+.manager-layout input:focus,
+.manager-layout select:focus {
+    border-color: var(--primary);
+}
+
+/* BUTTONS */
+.manager-layout button {
+    padding: 10px 14px;
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    background: var(--primary);
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.manager-layout button:hover {
+    filter: brightness(1.1);
+}
+
+/* CHECKBOX LIST */
+.manager-layout label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--text);
+}
+
+/* LIGHT MODE */
+body.light .manager-layout section {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+}
+
+body.light .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+}
+
+body.light .manager-layout input,
+body.light .manager-layout select {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.manager-layout input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+
+    accent-color: var(--primary);
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+.manager-layout label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    user-select: none;
+}
