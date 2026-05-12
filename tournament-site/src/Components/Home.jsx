@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import './Home.css';
+
+import { useEffect, useMemo, useState } from 'react';
 
 export default function MatchesPage({ apiUrl }) {
     const [matches, setMatches] = useState([]);
@@ -27,21 +28,7 @@ export default function MatchesPage({ apiUrl }) {
                     fetch(`${apiUrl}/normalize/age-groups`)
                 ]);
 
-            if (
-                !matchesRes.ok ||
-                !sportsRes.ok ||
-                !ageGroupsRes.ok
-            ) {
-                console.log("Response statuses:", {
-                    matchesStatus: matchesRes.status,
-                    sportsStatus: sportsRes.status,
-                    ageGroupsStatus: ageGroupsRes.status
-                });
-                console.log("Failed responses:", {
-                    matchesRes,
-                    sportsRes,
-                    ageGroupsRes
-                });
+            if (!matchesRes.ok || !sportsRes.ok || !ageGroupsRes.ok) {
                 throw new Error("Failed to fetch data");
             }
 
@@ -54,7 +41,6 @@ export default function MatchesPage({ apiUrl }) {
             setAgeGroups(ageGroupsData);
 
         } catch (err) {
-            console.error(err);
             setError(err.message);
         } finally {
             setLoading(false);
@@ -63,14 +49,13 @@ export default function MatchesPage({ apiUrl }) {
 
     const filteredMatches = useMemo(() => {
         return matches.filter((match) => {
-
             const sportFilter =
                 !selectedSport ||
-                match.Sport_ID === selectedSport;
+                String(match.Sport_ID) === String(selectedSport);
 
             const ageGroupFilter =
                 !selectedAgeGroup ||
-                match.Age_group_ID === selectedAgeGroup;
+                String(match.Age_group_ID) === String(selectedAgeGroup);
 
             return sportFilter && ageGroupFilter;
         });
@@ -81,47 +66,31 @@ export default function MatchesPage({ apiUrl }) {
     }
 
     if (loading) {
-        return (
-            <div className="p-6 text-xl">
-                Loading matches...
-            </div>
-        );
+        return <div className="state">Loading matches...</div>;
     }
 
     if (error) {
-        return (
-            <div className="p-6 text-red-500">
-                {error}
-            </div>
-        );
+        return <div className="state error">{error}</div>;
     }
 
     return (
-        <div className="p-6 max-w-6xl mx-auto">
+        <div className="matches-page">
 
-            <h1 className="text-4xl font-bold mb-8">
+            <h1 className="matches-title">
                 Matches
             </h1>
 
             {/* FILTERS */}
-            <div className="flex flex-wrap gap-6 mb-8">
+            <div className="filters">
 
-                {/* SPORT FILTER */}
-                <div>
-                    <label className="block mb-2 font-semibold">
-                        Sport
-                    </label>
+                <div className="filter-group">
+                    <label>Sport</label>
 
                     <select
                         value={selectedSport}
-                        onChange={(e) =>
-                            setSelectedSport(e.target.value)
-                        }
-                        className="border rounded px-4 py-2"
+                        onChange={(e) => setSelectedSport(e.target.value)}
                     >
-                        <option value="">
-                            All Sports
-                        </option>
+                        <option value="">All Sports</option>
 
                         {sports.map((sport) => (
                             <option
@@ -134,22 +103,14 @@ export default function MatchesPage({ apiUrl }) {
                     </select>
                 </div>
 
-                {/* AGE GROUP FILTER */}
-                <div>
-                    <label className="block mb-2 font-semibold">
-                        Age Group
-                    </label>
+                <div className="filter-group">
+                    <label>Age Group</label>
 
                     <select
                         value={selectedAgeGroup}
-                        onChange={(e) =>
-                            setSelectedAgeGroup(e.target.value)
-                        }
-                        className="border rounded px-4 py-2"
+                        onChange={(e) => setSelectedAgeGroup(e.target.value)}
                     >
-                        <option value="">
-                            All Age Groups
-                        </option>
+                        <option value="">All Age Groups</option>
 
                         {ageGroups.map((group) => (
                             <option
@@ -161,59 +122,47 @@ export default function MatchesPage({ apiUrl }) {
                         ))}
                     </select>
                 </div>
+
             </div>
 
             {/* MATCHES */}
-            <div className="grid gap-5">
+            <div className="matches-grid">
 
                 {filteredMatches.length === 0 && (
-                    <div className="text-gray-500">
+                    <div className="empty">
                         No matches found.
                     </div>
                 )}
 
                 {filteredMatches.map((match) => (
-                    <div
-                        key={match.Match_ID}
-                        className="border rounded-xl p-5 shadow-sm"
-                    >
-                        <h2 className="text-2xl font-semibold mb-3">
-                            {match.Home_Team_Name} vs{" "}
-                            {match.Away_Team_Name}
-                        </h2>
+                    <div key={match.Match_ID} className="match-card">
 
-                        <div className="space-y-1">
+                        <div className="match-title">
+                            {match.Home_Team_Name} vs {match.Away_Team_Name}
+                        </div>
 
-                            <p>
-                                <span className="font-semibold">
-                                    Date:
-                                </span>{" "}
-                                {formatDate(match.Match_Time)}
-                            </p>
+                        <div className="match-info">
 
-                            <p>
-                                <span className="font-semibold">
-                                    Sport:
-                                </span>{" "}
-                                {match.Sport_Name}
-                            </p>
+                            <div>
+                                <span>Date:</span> {formatDate(match.Match_Time)}
+                            </div>
 
-                            <p>
-                                <span className="font-semibold">
-                                    Arena:
-                                </span>{" "}
-                                {match.Arena_Name}
-                            </p>
+                            <div>
+                                <span>Sport:</span> {match.Sport_Name}
+                            </div>
 
-                            <p>
-                                <span className="font-semibold">
-                                    Result:
-                                </span>{" "}
-                                {match.Result || "Not played"}
-                            </p>
+                            <div>
+                                <span>Arena:</span> {match.Arena_Name}
+                            </div>
+
+                            <div>
+                                <span>Result:</span> {match.Result || "Not played"}
+                            </div>
+
                         </div>
                     </div>
                 ))}
+
             </div>
         </div>
     );

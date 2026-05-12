@@ -1,0 +1,128 @@
+.matches-page {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    color: var(--text);
+}
+
+/* TITLE */
+.matches-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+
+    margin-bottom: 24px;
+}
+
+/* FILTER WRAPPER */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+/* FILTER BLOCK */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* LABEL */
+.filter-group label {
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+/* SELECT */
+select {
+    padding: 10px 12px;
+
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+
+    background: var(--bg-soft);
+    color: var(--text);
+
+    outline: none;
+}
+
+/* MATCH GRID */
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* MATCH CARD */
+.match-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* MATCH TITLE */
+.match-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* TEXT ROWS */
+.match-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    color: var(--text-soft);
+}
+
+/* LABELS */
+.match-info span {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* EMPTY STATE */
+.empty {
+    color: var(--text-muted);
+    font-size: 1rem;
+
+    padding: 20px;
+    text-align: center;
+}
+
+/* LOADING / ERROR */
+.state {
+    padding: 20px;
+    font-size: 1.1rem;
+}
+
+.error {
+    color: var(--danger);
+}
+
+/* LIGHT MODE OVERRIDES */
+body.light .match-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+body.light select {
+    background: var(--bg-soft);
+    color: var(--text);
+}
