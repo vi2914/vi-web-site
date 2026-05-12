@@ -81,13 +81,13 @@ function NavBar({ user, logout }) {
                         </NavLink>
                     )}
 
-                    {isManager && (
+                    {(isManager || isAdmin) && (
                         <NavLink onClick={closeMenu} to="/manager" className="nav-item manager">
                             Manager panel
                         </NavLink>
                     )}
 
-                    {isReferee && (
+                    {(isReferee || isAdmin) && (
                         <NavLink onClick={closeMenu} to="/referee" className="nav-item referee">
                             Referee panel
                         </NavLink>

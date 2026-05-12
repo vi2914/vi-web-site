@@ -75,7 +75,7 @@ function AdminCreateUser({ isAdmin, apiUrl }) {
 }
 
 /* ---------------- USERS PANEL ---------------- */
-function AdminUserPanel({ isAdmin }) {
+function AdminUserPanel({ isAdmin, apiUrl }) {
     const [users, setUsers] = useState([]);
     const [selected, setSelected] = useState([]);
 
@@ -109,7 +109,7 @@ function AdminUserPanel({ isAdmin }) {
 
         await Promise.all(
             selected.map((uuid) =>
-                fetch(`${apiUrl}/admin/${uuid}`, {
+                fetch(`${apiUrl}/admin/user/${uuid}`, {
                     method: "DELETE",
                     headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) }
                 })
@@ -165,7 +165,7 @@ function AdminUserPanel({ isAdmin }) {
 }
 
 /* ---------------- MAIN PANEL ---------------- */
-export default function AdminPanel({ user }) {
+export default function AdminPanel({ user, apiUrl }) {
     const isAdmin = user.roles.includes("admin");
 
     return (
@@ -176,8 +176,8 @@ export default function AdminPanel({ user }) {
             </div>
 
             <div className="admin-grid">
-                <AdminCreateUser isAdmin={isAdmin} />
-                <AdminUserPanel isAdmin={isAdmin} />
+                <AdminCreateUser isAdmin={isAdmin} apiUrl={apiUrl} />
+                <AdminUserPanel isAdmin={isAdmin} apiUrl={apiUrl} />
             </div>
         </div>
     );
