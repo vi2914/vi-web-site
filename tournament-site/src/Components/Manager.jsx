@@ -110,6 +110,19 @@ export default function ManagerPanel({ apiUrl, user }) {
         }
     };
 
+    const del = async (url) => {
+        try {
+            await fetch(url, {
+                method: "DELETE",
+                headers
+            });
+
+            await loadAll();
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     /* ================= CREATE ================= */
 
     const createTeam = async () => {
@@ -195,6 +208,9 @@ export default function ManagerPanel({ apiUrl, user }) {
                             className="card"
                         >
                             <b>{team.Team_name}</b>
+                            <button onClick={() => del(`${apiUrl}/teams/${team.Team_ID}`)}>
+                                Delete
+                            </button>
                         </div>
                     ))}
                 </div>
@@ -300,6 +316,9 @@ export default function ManagerPanel({ apiUrl, user }) {
                                         referee?.username ||
                                         "Unassigned"}
                                 </div>
+                                <button onClick={() => del(`${apiUrl}/matches/${match.Match_ID}`)}>
+                                    Delete
+                                </button>
                             </div>
                         );
                     })}
@@ -472,6 +491,9 @@ export default function ManagerPanel({ apiUrl, user }) {
                             className="card"
                         >
                             {sport.Sport_name}
+                            <button onClick={() => del(`${apiUrl}/sports/${sport.Sport_ID}`)}>
+                                Delete
+                            </button>
                         </div>
                     ))}
                 </div>
@@ -513,6 +535,10 @@ export default function ManagerPanel({ apiUrl, user }) {
                             <div>
                                 Capacity: {arena.Capacity}
                             </div>
+
+                            <button onClick={() => del(`${apiUrl}/normalize/arenas/${arena.Arena_ID}`)}>
+                                Delete
+                            </button>
                         </div>
                     ))}
                 </div>
@@ -607,6 +633,9 @@ export default function ManagerPanel({ apiUrl, user }) {
                             className="card"
                         >
                             {group.Group_name}
+                            <button onClick={() => del(`${apiUrl}/normalize/age-groups/${group.Age_group_ID}`)}>
+                                Delete
+                            </button>
                         </div>
                     ))}
                 </div>
