@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 /* ---------------- CREATE USER ---------------- */
-function AdminCreateUser({ isAdmin }) {
+function AdminCreateUser({ isAdmin, apiUrl }) {
     const [form, setForm] = useState({
         username: "",
         password: "",
@@ -30,7 +30,7 @@ function AdminCreateUser({ isAdmin }) {
 
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {
+            const res = await fetch(`${apiUrl}/admin`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
                 body: JSON.stringify(payload)
@@ -82,7 +82,7 @@ function AdminUserPanel({ isAdmin }) {
     const token = localStorage.getItem("token");
 
     const fetchUsers = async () => {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/users`, {
+        const res = await fetch(`${apiUrl}/admin/users`, {
             headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) }
         });
 
@@ -107,7 +107,7 @@ function AdminUserPanel({ isAdmin }) {
 
         await Promise.all(
             selected.map((uuid) =>
-                fetch(`${import.meta.env.VITE_API_URL}/auth/user/${uuid}`, {
+                fetch(`${apiUrl}/admin/${uuid}`, {
                     method: "DELETE",
                     headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) }
                 })

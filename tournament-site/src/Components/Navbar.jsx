@@ -11,7 +11,7 @@ function NavBar({ user, logout }) {
     const isManager = user?.roles?.includes("manager") ?? false;
     const isReferee = user?.roles?.includes("referee") ?? false;
 
-    const username = user?.username ?? "";
+    const username = user?.username ?? "guest";
 
     const localIP = import.meta.env.VITE_INTERNAL_IP;
     const isLocal = window.location.host === localIP;
@@ -102,15 +102,19 @@ function NavBar({ user, logout }) {
                     {theme === "light" ? "Dark" : "Light"}
                 </button>
 
-                {isLoggedIn && (
-                    <div className="user-pill">
-                        {username}
-                    </div>
-                )}
+                <div className="user-pill">
+                    {username}
+                </div>
 
-                <button className="logout-btn" onClick={logout}>
-                    Logout
-                </button>
+                {isLoggedIn ? (
+                    <button className="logout-btn" onClick={logout}>
+                        Logout
+                    </button>
+                ) : (
+                    <NavLink to="/login" className="login-btn">
+                        Login
+                    </NavLink>
+                )}
             </div>
         </nav>
     );

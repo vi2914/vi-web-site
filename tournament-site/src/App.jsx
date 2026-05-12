@@ -1,21 +1,49 @@
 import './App.css'
+
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import NavBar from './Components/Navbar'
 import AdminPanel from './Components/admin';
+import Login from './Components/login';
+
+function RequireAuth({ user, children }) {
+    if (!user) return <Navigate to="/login" replace />;
+    return children;
+}
+
+function RequireRole({ user, roles, children }) {
+    const ok = roles.some(r => user.roles.includes(r));
+    if (!ok) return <Navigate to="/" replace />;
+    return children;
+}
 
 function App() {
+    const ApiIp =window.location.host === import.meta.env.VITE_INTERNAL_IP ? import.meta.env.VITE_INTERNAL_API_IP : import.meta.env.VITE_EXTERNAL_API_IP;
 
-  
-  return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/*" element={<Navigate to="/" />} />
-        <Route path="/admin" element={<AdminPanel />} />
-      </Routes>
-    </BrowserRouter>
-  )
+    const [user, setUser] = useState(null);
+    const [apiUrl, setApiUrl] = useState(`http://${ApiIp}/api/v1`);
+
+    const logout = async () => {
+        try {
+          localStorage.removeItem("token");
+        } catch (err) {
+            console.error("Logout failed:", err);
+        } finally {
+            setUser(null);
+        }
+    };
+
+    return (
+        <BrowserRouter>
+            <NavBar user={user} logout={logout} />
+            <Routes>
+                <Route path="/*" element={<Navigate to="/" />} />
+                <Route path="/admin" element={<AdminPanel user={user} apiUrl={apiUrl} />} />
+                <Route path="/login" element={<Login setUser={setUser} apiUrl={apiUrl} />} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App
