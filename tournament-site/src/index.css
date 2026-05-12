@@ -1,0 +1,51 @@
+:root {
+    --bg: #0f172a;
+    --bg-2: #111827;
+    --card: #1f2937;
+    --border: #374151;
+
+    --text: #f9fafb;
+    --text-muted: #9ca3af;
+
+    --primary: #2563eb;
+    --primary-hover: #3b82f6;
+
+    --success: #16a34a;
+    --success-hover: #22c55e;
+
+    --danger: #dc2626;
+    --danger-hover: #ef4444;
+
+    --warning: #f59e0b;
+
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+body.light {
+    --bg: #f9fafb;
+    --bg-2: #ffffff;
+    --card: #f3f4f6;
+    --border: #e5e7eb;
+
+    --text: #111827;
+    --text-muted: #6b7280;
+
+    --primary: #2563eb;
+    --primary-hover: #3b82f6;
+
+    --success: #16a34a;
+    --success-hover: #22c55e;
+
+    --danger: #dc2626;
+    --danger-hover: #ef4444;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}

@@ -1,8 +1,8 @@
 .nav {
     padding: 14px 24px;
 
-    background: #111827;
-    border-bottom: 1px solid #1f2937;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
 
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@
 .brand {
     font-size: 1.2rem;
     font-weight: 700;
-    color: white;
+    color: var(--text);
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -60,18 +60,18 @@
 
     background: transparent;
     border: none;
-    color: white;
+    color: var(--text);
 
     font-size: 1.5rem;
     cursor: pointer;
 }
 
 .nav-item {
-    color: #d1d5db;
+    color: var(--text-muted);
     text-decoration: none;
 
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
 
     transition: 0.2s ease;
     white-space: nowrap;
@@ -79,12 +79,12 @@
 }
 
 .nav-item:hover {
-    background: #1f2937;
-    color: white;
+    background: var(--card);
+    color: var(--text);
 }
 
 .nav-item.active {
-    background: #2563eb;
+    background: var(--primary);
     color: white;
 }
 
@@ -122,7 +122,7 @@
     outline: none;
 
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
 
     font-size: 0.95rem;
     font-weight: 600;
@@ -134,44 +134,44 @@
     flex-shrink: 0;
 }
 
-/* FIX LOGIN (NavLink LOOK, NOT BUTTON) */
+/* LOGIN LINK */
 .login-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    background: #2563eb;
+    background: var(--primary);
     color: white;
 
     text-decoration: none;
 }
 
 .login-btn:hover {
-    background: #3b82f6;
+    background: var(--primary-hover);
 }
 
-/* FIX LIGHT BUTTON */
+/* LIGHT BUTTON */
 .btn-gray {
-    background: #374151;
-    color: white;
+    background: var(--card);
+    color: var(--text);
 }
 
 .btn-gray:hover {
-    background: #4b5563;
+    background: var(--border);
 }
 
 .logout-btn {
-    background: #dc2626;
+    background: var(--danger);
     color: white;
 }
 
 .logout-btn:hover {
-    background: #ef4444;
+    background: var(--danger-hover);
 }
 
 .user-pill {
-    background: #1f2937;
-    color: #f9fafb;
+    background: var(--card);
+    color: var(--text);
 
     padding: 8px 12px;
     border-radius: 999px;
@@ -185,52 +185,6 @@
     text-overflow: ellipsis;
 
     flex-shrink: 0;
-}
-
-/* LIGHT MODE FIX */
-body.light .nav {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-body.light .brand {
-    color: #111827;
-}
-
-body.light .menu-btn {
-    color: #111827;
-}
-
-body.light .nav-item {
-    color: #374151;
-}
-
-body.light .nav-item:hover {
-    background: #f3f4f6;
-    color: #111827;
-}
-
-body.light .btn-gray {
-    background: #e5e7eb;
-    color: #111827;
-}
-
-body.light .btn-gray:hover {
-    background: #d1d5db;
-}
-
-body.light .login-btn {
-    background: #2563eb;
-    color: white;
-}
-
-body.light .login-btn:hover {
-    background: #3b82f6;
-}
-
-body.light .user-pill {
-    background: #f3f4f6;
-    color: #111827;
 }
 
 /* MOBILE */
