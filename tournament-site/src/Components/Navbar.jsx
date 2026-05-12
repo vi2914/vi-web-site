@@ -61,7 +61,7 @@ function NavBar({ user, logout }) {
     return (
         <nav className="nav">
             <div className="nav-left">
-                <div className="brand">Vind Tournament</div>
+                <div className="brand">Vind Turnering</div>
 
                 <button
                     className="menu-btn"
