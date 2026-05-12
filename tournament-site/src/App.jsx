@@ -36,12 +36,17 @@ function App() {
 
     return (
         <BrowserRouter>
-            <NavBar user={user} logout={logout} />
-            <Routes>
-                <Route path="/*" element={<Navigate to="/" />} />
-                <Route path="/admin" element={<AdminPanel user={user} apiUrl={apiUrl} />} />
-                <Route path="/login" element={<Login setUser={setUser} apiUrl={apiUrl} />} />
-            </Routes>
+            <div className="app-layout">
+                <NavBar user={user} logout={logout} />
+
+                <main className="app-content">
+                    <Routes>
+                        <Route path="/*" element={<Navigate to="/" />} />
+                        <Route path="/admin" element={<AdminPanel user={user} apiUrl={apiUrl} />} />
+                        <Route path="/login" element={<Login setUser={setUser} apiUrl={apiUrl} />} />
+                    </Routes>
+                </main>
+            </div>
         </BrowserRouter>
     )
 }

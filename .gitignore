@@ -6,3 +6,5 @@ node_modules/
 public/
 
 tournament-site/.env
+
+debug.log
