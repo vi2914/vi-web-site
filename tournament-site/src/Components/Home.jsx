@@ -81,49 +81,49 @@ export default function MatchesPage({ apiUrl }) {
             </h1>
 
             {/* FILTERS */}
-            <div className="filters">
+<div className="filter-group">
 
-                <div className="filter-group">
-                    <label>Sport</label>
+    <div className="filter-box">
+        <label className="filter-label">Sport</label>
 
-                    <select
-                        value={selectedSport}
-                        onChange={(e) => setSelectedSport(e.target.value)}
-                    >
-                        <option value="">All Sports</option>
+        <select
+            value={selectedSport}
+            onChange={(e) => setSelectedSport(e.target.value)}
+        >
+            <option value="">All Sports</option>
 
-                        {sports.map((sport) => (
-                            <option
-                                key={sport.Sport_ID}
-                                value={sport.Sport_ID}
-                            >
-                                {sport.Sport_name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+            {sports.map((sport) => (
+                <option
+                    key={sport.Sport_ID}
+                    value={sport.Sport_ID}
+                >
+                    {sport.Sport_name}
+                </option>
+            ))}
+        </select>
+    </div>
 
-                <div className="filter-group">
-                    <label>Age Group</label>
+    <div className="filter-box">
+        <label className="filter-label">Age Group</label>
 
-                    <select
-                        value={selectedAgeGroup}
-                        onChange={(e) => setSelectedAgeGroup(e.target.value)}
-                    >
-                        <option value="">All Age Groups</option>
+        <select
+            value={selectedAgeGroup}
+            onChange={(e) => setSelectedAgeGroup(e.target.value)}
+        >
+            <option value="">All Age Groups</option>
 
-                        {ageGroups.map((group) => (
-                            <option
-                                key={group.Age_group_ID}
-                                value={group.Age_group_ID}
-                            >
-                                {group.Group_name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+            {ageGroups.map((group) => (
+                <option
+                    key={group.Age_group_ID}
+                    value={group.Age_group_ID}
+                >
+                    {group.Group_name}
+                </option>
+            ))}
+        </select>
+    </div>
 
-            </div>
+</div>
 
             {/* MATCHES */}
             <div className="matches-grid">
