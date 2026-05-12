@@ -1,0 +1,281 @@
+.matches-page {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    color: var(--text);
+}
+
+/* TITLE */
+.matches-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+
+    margin-bottom: 24px;
+}
+
+/* FILTER WRAPPER */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+/* FILTER BLOCK */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* LABEL */
+.filter-group label {
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+/* SELECT */
+select {
+    padding: 10px 12px;
+
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+
+    background: var(--bg-soft);
+    color: var(--text);
+
+    outline: none;
+}
+
+/* MATCH GRID */
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* MATCH CARD */
+.match-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* MATCH TITLE */
+.match-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* TEXT ROWS */
+.match-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    color: var(--text-soft);
+}
+
+/* LABELS */
+.match-info span {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* EMPTY STATE */
+.empty {
+    color: var(--text-muted);
+    font-size: 1rem;
+
+    padding: 20px;
+    text-align: center;
+}
+
+/* LOADING / ERROR */
+.state {
+    padding: 20px;
+    font-size: 1.1rem;
+}
+
+.error {
+    color: var(--danger);
+}
+
+/* LIGHT MODE OVERRIDES */
+body.light .match-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+body.light select {
+    background: var(--bg-soft);
+    color: var(--text);
+}
+
+/* ================= DROPDOWNS ================= */
+
+select {
+    width: 100%;
+    max-width: 240px;
+
+    padding: 10px 12px;
+
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 0.95rem;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+    appearance: none;
+
+    box-sizing: border-box;
+}
+
+select:hover {
+    border-color: var(--accent);
+}
+
+select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* dropdown arrow fix */
+select {
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+        linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 18px) center,
+        calc(100% - 12px) center;
+
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+
+    padding-right: 34px;
+}
+
+/* ================= FILTER WRAPPER ================= */
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ================= DROPDOWN BASE ================= */
+
+select {
+    width: 100%;
+    max-width: 240px;
+
+    padding: 10px 36px 10px 12px;
+
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 0.95rem;
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    transition: 0.2s ease;
+}
+
+/* Fix ugly browser autofill-like background override */
+select,
+select:focus,
+select:active {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary);
+}
+
+/* Hover + focus */
+select:hover {
+    border-color: var(--accent);
+}
+
+select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* ================= DROPDOWN ARROW ================= */
+
+select {
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+        linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 18px) center,
+        calc(100% - 12px) center;
+
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+/* ================= OPTION FIX ================= */
+
+option {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* ================= LIGHT MODE OVERRIDE ================= */
+
+body.light select {
+    background-color: var(--bg-secondary-light);
+    color: var(--text-primary-light);
+    border: 1px solid var(--border-color-light);
+}
+
+body.light option {
+    background-color: var(--bg-secondary-light);
+    color: var(--text-primary-light);
+}

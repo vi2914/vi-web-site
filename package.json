@@ -1,0 +1,44 @@
+{
+    "name": "vi-web-site",
+    "version": "1.0.0",
+    "description": "Website for Vind IL",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server.js",
+        "postinstall": "node postBuild.js"
+    },
+    "keywords": [],
+    "author": "vi2914",
+    "license": "none",
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "express": "^4.10.4"
+    },
+    "installPath": "~/vind-il/web/site",
+    "nginx": {
+        "service": {
+            "name": "vi-web-site",
+            "port": 3869,
+            "uri": "",
+            "https": false,
+            "servers": ["localhost"]
+        },
+        "localhost": {
+            "urls": ["_"],
+            "certificate": "/etc/ssl/certs/selfsigned.crt",
+            "certificateKey": "/etc/ssl/private/selfsigned.key"
+        }
+    },
+    "pm2": {
+        "name": "vi-web-site",
+        "file": "server.js"
+    },
+    "autoUpdate": {
+        "githubWebhook": {
+            "branch": ["main"],
+            "repo": "vi2914/vi-web-site"
+        }
+    }
+}

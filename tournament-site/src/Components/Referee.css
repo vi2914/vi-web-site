@@ -1,0 +1,160 @@
+/* ================= PAGE ================= */
+
+.ref-page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 24px;
+    box-sizing: border-box;
+
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* ================= HEADER ================= */
+
+.ref-page h1 {
+    margin: 0 0 20px 0;
+
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* ================= GRID ================= */
+
+.ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* ================= CARD ================= */
+
+.ref-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+
+    border-radius: 16px;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    transition: transform 0.15s ease, border-color 0.2s ease;
+}
+
+.ref-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+/* ================= TEXT ================= */
+
+.teams {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.result {
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions {
+    display: flex;
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+/* input */
+.actions input {
+    flex: 1;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+
+    background: var(--bg-primary);
+    color: var(--text-primary);
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.actions input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* button */
+.actions button {
+    padding: 10px 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--accent);
+    color: white;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.actions button:hover {
+    filter: brightness(1.1);
+}
+
+.actions button:active {
+    transform: scale(0.97);
+}
+
+/* ================= EMPTY / ERROR ================= */
+
+.empty {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.error {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* ================= LOADING ================= */
+
+.ref-page > .ref-page {
+    font-size: 1.1rem;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+    .ref-page {
+        padding: 16px;
+    }
+
+    .ref-card {
+        padding: 14px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+}

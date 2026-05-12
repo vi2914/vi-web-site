@@ -1,0 +1,217 @@
+.admin-layout {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.admin-top {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+/* CARDS */
+.card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    padding: 16px;
+    box-sizing: border-box;
+
+    min-width: 0;
+    color: var(--text);
+}
+
+.admin-card h3 {
+    margin: 0 0 12px 0;
+    color: var(--text);
+}
+
+/* FORM */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-form input {
+    width: 100%;
+    padding: 10px 12px;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+
+    background: var(--card);
+    color: var(--text);
+
+    box-sizing: border-box;
+}
+
+.admin-form input::placeholder {
+    color: var(--text-muted);
+}
+
+.full {
+    width: 100%;
+}
+
+/* BUTTONS */
+.btn-green {
+    background: var(--success);
+    color: white;
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    padding: 10px 14px;
+
+    cursor: pointer;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.btn-green:hover {
+    filter: brightness(1.1);
+}
+
+.btn-red {
+    background: var(--danger);
+    color: white;
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    padding: 8px 12px;
+
+    cursor: pointer;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.btn-red:hover {
+    filter: brightness(1.1);
+}
+
+.btn-red:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* USERS */
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.user-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    min-width: 0;
+}
+
+.user-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-width: 0;
+}
+
+.user-title {
+    font-weight: 600;
+    color: var(--text);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-email {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.badge {
+    font-size: 0.75rem;
+
+    padding: 4px 8px;
+    border-radius: 999px;
+
+    background: var(--bg-3);
+    color: var(--text-muted);
+}
+
+/* LIGHT MODE */
+body.light .card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+}
+
+body.light .admin-form input {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+body.light .user-card {
+    background: var(--card);
+}
+
+body.light .badge {
+    background: var(--bg-3);
+    color: var(--text);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+}

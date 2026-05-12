@@ -1,0 +1,232 @@
+.nav {
+    padding: 14px 24px;
+
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 16px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.menu-btn {
+    display: none;
+
+    background: transparent;
+    border: none;
+    color: var(--text);
+
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-item {
+    color: var(--text-muted);
+    text-decoration: none;
+
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+
+    transition: 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-item:hover {
+    background: var(--card);
+    color: var(--text);
+}
+
+.nav-item.active {
+    background: var(--primary);
+    color: white;
+}
+
+.nav-item.active:hover {
+    background: var(--primary-hover);
+    color: white;
+}
+
+.nav-item.admin {
+    background: #2563eb80;
+    
+    color: #f9fafb;
+}
+
+.nav-item.admin.active {
+    background: var(--primary);
+}
+
+.nav-item.admin:hover {
+    background: #3b82f680;
+}
+
+.nav-item.admin.active:hover {
+    background: var(--primary-hover);
+}
+
+.btn-gray,
+.logout-btn,
+.login-btn {
+    border: none;
+    outline: none;
+
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* LOGIN LINK */
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+    color: white;
+
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background: var(--primary-hover);
+}
+
+/* LIGHT BUTTON */
+.btn-gray {
+    background: var(--card);
+    color: var(--text);
+}
+
+.btn-gray:hover {
+    background: var(--border);
+}
+
+.logout-btn {
+    background: var(--danger);
+    color: white;
+}
+
+.logout-btn:hover {
+    background: var(--danger-hover);
+}
+
+.user-pill {
+    background: var(--card);
+    color: var(--text);
+
+    padding: 8px 12px;
+    border-radius: 999px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    flex-shrink: 0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-right {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 12px;
+    }
+
+    .btn-gray,
+    .logout-btn,
+    .login-btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    .user-pill {
+        width: 100%;
+        text-align: center;
+        max-width: none;
+    }
+}
