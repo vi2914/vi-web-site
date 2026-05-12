@@ -190,7 +190,7 @@ export default function ManagerPanel({ apiUrl, user }) {
 
     return (
         <div className="manager-layout">
-            <h2>🏆 Manager Panel</h2>
+            <h2>Manager Panel</h2>
 
             <p>
                 Logged in as <b>{user.username}</b>
@@ -307,11 +307,11 @@ export default function ManagerPanel({ apiUrl, user }) {
                                 </b>
 
                                 <div>
-                                    📅 {date} ⏰ {time}
+                                    {date} {time}
                                 </div>
 
                                 <div>
-                                    🎤 Referee:{" "}
+                                    Referee:{" "}
                                     {referee?.Username ||
                                         referee?.username ||
                                         "Unassigned"}
