@@ -94,12 +94,21 @@
 }
 
 .nav-item.admin {
-    background: #0d6efd;
+    background: #2563eb80;
+    
     color: #f9fafb;
 }
 
+.nav-item.admin.active {
+    background: var(--primary);
+}
+
 .nav-item.admin:hover {
-    background: #321fdb;
+    background: #3b82f680;
+}
+
+.nav-item.admin.active:hover {
+    background: var(--primary-hover);
 }
 
 .btn-gray,
